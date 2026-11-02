@@ -1,0 +1,147 @@
+---
+// Placeholder illustration for the "How it works" section.
+// Three minimal panels: clip onto the hood, cook, receive guidance.
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 960 340"
+  role="img"
+  aria-labelledby="howTitle howDesc"
+  style="width: 100%; height: auto;"
+>
+  <title id="howTitle">Cómo funciona Koty: enganchar, cocinar, recibir guía</title>
+  <desc id="howDesc">
+    Tres pasos en línea: un dispositivo se engancha a la campana, observa la placa mientras cocinas y envía guía a un móvil.
+  </desc>
+
+  <defs>
+    <style>
+      .how-stroke {
+        stroke: var(--color-ink);
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .how-muted {
+        stroke: var(--color-muted);
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .how-card {
+        stroke: var(--color-line);
+        stroke-width: 1.5;
+        fill: var(--color-bg);
+      }
+      .how-accent {
+        fill: var(--color-accent);
+      }
+      .how-number {
+        fill: var(--color-bg);
+        font-family: var(--font-body);
+        font-size: 16px;
+        font-weight: 650;
+        text-anchor: middle;
+        dominant-baseline: middle;
+      }
+      .how-label {
+        fill: var(--color-muted);
+        font-family: var(--font-body);
+        font-size: 14px;
+        font-weight: 500;
+        text-anchor: middle;
+        dominant-baseline: middle;
+      }
+    </style>
+  </defs>
+
+  <!-- Step cards -->
+  <rect class="how-card" x="40" y="40" width="270" height="260" rx="20" />
+  <rect class="how-card" x="345" y="40" width="270" height="260" rx="20" />
+  <rect class="how-card" x="650" y="40" width="270" height="260" rx="20" />
+
+  <!-- Step numbers -->
+  <circle class="how-accent" cx="76" cy="76" r="18" />
+  <text class="how-number" x="76" y="76">1</text>
+
+  <circle class="how-accent" cx="381" cy="76" r="18" />
+  <text class="how-number" x="381" y="76">2</text>
+
+  <circle class="how-accent" cx="686" cy="76" r="18" />
+  <text class="how-number" x="686" y="76">3</text>
+
+  <!-- Arrows between cards -->
+  <g class="how-muted">
+    <line x1="310" y1="170" x2="345" y2="170" />
+    <polygon points="345,170 335,165 335,175" />
+    <line x1="615" y1="170" x2="650" y2="170" />
+    <polygon points="650,170 640,165 640,175" />
+  </g>
+
+  <!-- Panel 1: Clip onto the hood -->
+  <g transform="translate(40, 40)">
+    <!-- Hood body -->
+    <path class="how-stroke" d="M 50 70 L 220 70 L 195 125 L 75 125 Z" />
+    <!-- Hood chimney -->
+    <path class="how-muted" d="M 115 70 L 115 45 L 155 45 L 155 70" />
+    <!-- Koty device clipped under hood -->
+    <rect class="how-stroke" x="120" y="105" width="60" height="28" rx="8" />
+    <circle class="how-accent" cx="150" cy="119" r="7" />
+    <!-- Clip line -->
+    <line class="how-muted" x1="150" y1="105" x2="150" y2="90" />
+    <!-- Stovetop below -->
+    <line class="how-stroke" x1="60" y1="195" x2="210" y2="195" />
+    <line class="how-muted" x1="150" y1="133" x2="150" y2="170" />
+    <circle class="how-muted" cx="150" cy="170" r="3" fill="var(--color-muted)" />
+    <text class="how-label" x="135" y="225">Engancha</text>
+  </g>
+
+  <!-- Panel 2: Cook -->
+  <g transform="translate(345, 40)">
+    <!-- Koty device above stovetop -->
+    <rect class="how-stroke" x="105" y="55" width="60" height="28" rx="8" />
+    <circle class="how-accent" cx="135" cy="69" r="7" />
+    <!-- Viewing cone -->
+    <path class="how-muted" d="M 135 83 L 95 150" />
+    <path class="how-muted" d="M 135 83 L 175 150" />
+    <!-- Stovetop -->
+    <rect class="how-stroke" x="55" y="150" width="160" height="18" rx="4" />
+    <!-- Burners -->
+    <circle class="how-muted" cx="95" cy="185" r="12" />
+    <circle class="how-muted" cx="175" cy="185" r="12" />
+    <circle class="how-muted" cx="95" cy="225" r="12" />
+    <circle class="how-muted" cx="175" cy="225" r="12" />
+    <!-- Pan on front-left burner -->
+    <circle class="how-stroke" cx="95" cy="225" r="20" />
+    <line class="how-stroke" x1="75" y1="225" x2="50" y2="225" />
+    <!-- Steam -->
+    <path class="how-muted" d="M 85 205 Q 95 195 105 205" />
+    <path class="how-muted" d="M 95 200 Q 105 190 115 200" />
+    <text class="how-label" x="135" y="255">Cocina</text>
+  </g>
+
+  <!-- Panel 3: Guidance -->
+  <g transform="translate(650, 40)">
+    <!-- Phone -->
+    <rect class="how-stroke" x="85" y="65" width="70" height="130" rx="10" />
+    <rect class="how-muted" x="92" y="78" width="56" height="100" rx="4" />
+    <!-- Step card inside screen -->
+    <rect class="how-card" x="100" y="92" width="40" height="50" rx="6" />
+    <circle class="how-accent" cx="120" cy="112" r="9" />
+    <path
+      class="how-stroke"
+      d="M 116 112 L 119 115 L 125 109"
+      style="stroke: var(--color-bg); fill: none;"
+    />
+    <line class="how-muted" x1="108" y1="132" x2="132" y2="132" />
+    <line class="how-muted" x1="108" y1="140" x2="126" y2="140" />
+    <!-- Wireless signal from device to phone -->
+    <path class="how-muted" d="M 70 100 Q 50 90 60 70" />
+    <path class="how-muted" d="M 75 95 Q 60 85 67 70" />
+    <circle class="how-accent" cx="75" cy="105" r="6" />
+    <text class="how-label" x="120" y="225">Recibe guía</text>
+  </g>
+</svg>
