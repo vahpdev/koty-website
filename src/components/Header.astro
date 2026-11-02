@@ -1,0 +1,43 @@
+---
+import LangSwitch from './LangSwitch.astro';
+
+interface Props {
+  lang: 'es' | 'en';
+}
+
+const { lang } = Astro.props;
+const copy = {
+  es: {
+    how: 'Cómo funciona',
+    modes: 'Modos',
+    privacy: 'Privacidad',
+    faq: 'FAQ',
+    cta: 'Únete a la lista',
+    nav: 'Principal',
+  },
+  en: {
+    how: 'How it works',
+    modes: 'Modes',
+    privacy: 'Privacy',
+    faq: 'FAQ',
+    cta: 'Join the waitlist',
+    nav: 'Primary',
+  },
+}[lang];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="wordmark" href={lang === 'es' ? '/' : '/en/'} aria-label="Koty">Koty</a>
+    <nav class="nav" aria-label={copy.nav}>
+      <a href="#como-funciona">{copy.how}</a>
+      <a href="#modos">{copy.modes}</a>
+      <a href="#privacidad">{copy.privacy}</a>
+      <a href="#faq">{copy.faq}</a>
+    </nav>
+    <div class="header-actions">
+      <LangSwitch lang={lang} />
+      <a class="button" href="#lista-espera">{copy.cta}</a>
+    </div>
+  </div>
+</header>

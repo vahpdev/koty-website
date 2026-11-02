@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import { ui } from '../../i18n/ui';
+
+const copy = ui.en;
+---
+
+<BaseLayout title={copy.meta.title} description={copy.meta.description} lang="en">
+  <Section id="home" narrow>
+    <p class="eyebrow">{copy.hero.eyebrow}</p>
+    <h1>{copy.hero.title}</h1>
+    <p>{copy.hero.subhead}</p>
+  </Section>
+</BaseLayout>

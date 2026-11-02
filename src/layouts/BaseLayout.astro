@@ -1,0 +1,66 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Alternates {
+  es: string;
+  en: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  lang: 'es' | 'en';
+  canonicalPath?: string;
+  alternates?: Alternates;
+}
+
+const {
+  title,
+  description,
+  lang,
+  canonicalPath = Astro.url.pathname,
+  alternates = { es: '/', en: '/en/' },
+} = Astro.props;
+
+const site = Astro.site ?? new URL('https://koty.ing');
+const canonical = new URL(canonicalPath, site);
+const esUrl = new URL(alternates.es, site);
+const enUrl = new URL(alternates.en, site);
+const skipLabel = lang === 'es' ? 'Saltar al contenido' : 'Skip to content';
+const ogLocale = lang === 'es' ? 'es_ES' : 'en_US';
+const ogLocaleAlternate = lang === 'es' ? 'en_US' : 'es_ES';
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es" href={esUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={esUrl} />
+    <meta property="og:site_name" content="Koty" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlternate} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">{skipLabel}</a>
+    <Header lang={lang} />
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

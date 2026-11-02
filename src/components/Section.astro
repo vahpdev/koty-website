@@ -1,0 +1,15 @@
+---
+interface Props {
+  id?: string;
+  class?: string;
+  narrow?: boolean;
+}
+
+const { id, class: className = '', narrow = false } = Astro.props;
+---
+
+<section id={id} class:list={['section', className]}>
+  <div class:list={['container', narrow && 'container-narrow']}>
+    <slot />
+  </div>
+</section>

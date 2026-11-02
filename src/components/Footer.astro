@@ -1,0 +1,41 @@
+---
+interface Props {
+  lang: 'es' | 'en';
+}
+
+const { lang } = Astro.props;
+const year = new Date().getFullYear();
+const copy = {
+  es: {
+    legal: 'Aviso legal',
+    privacy: 'Privacidad',
+    cookies: 'Cookies',
+    contact: 'Contacto: por confirmar',
+    rights: 'Todos los derechos reservados.',
+    nav: 'Legal',
+  },
+  en: {
+    legal: 'Legal notice',
+    privacy: 'Privacy',
+    cookies: 'Cookies',
+    contact: 'Contact: to be confirmed',
+    rights: 'All rights reserved.',
+    nav: 'Legal',
+  },
+}[lang];
+const legalHref = lang === 'es' ? '/aviso-legal' : '/en/legal-notice';
+const privacyHref = lang === 'es' ? '/privacidad' : '/en/privacy';
+const cookiesHref = lang === 'es' ? '/cookies' : '/en/cookies';
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© {year} Koty. {copy.rights}</p>
+    <nav class="footer-links" aria-label={copy.nav}>
+      <a href={legalHref}>{copy.legal}</a>
+      <a href={privacyHref}>{copy.privacy}</a>
+      <a href={cookiesHref}>{copy.cookies}</a>
+      <span>{copy.contact}</span>
+    </nav>
+  </div>
+</footer>
